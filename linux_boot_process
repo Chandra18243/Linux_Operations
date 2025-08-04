@@ -1,3 +1,40 @@
-Summary Flow:
+-->Summary Flow:
 Power on → BIOS/UEFI → Bootloader (GRUB) → Kernel load → Initramfs → Root filesystem → Init/Systemd → Services → User login
 
+-->Step By Operation of Boot Process of Linux:
+
+Power On
+   ↓
+BIOS/UEFI (POST, hardware init, find bootloader)
+   ↓
+Bootloader (GRUB) loads kernel + initramfs
+   ↓
+Linux Kernel Initialization (hardware detection, mount root fs)
+   ↓
+Init/Systemd process (start services, runlevels/targets)
+   ↓
+User login prompt (console or GUI)
+
+
+-->Standard Run Levels of Linux System:
+
+Standard Runlevels (SysVinit style)
+Runlevel	Description	Typical Usage
+0	Halt (shutdown)	System shutdown (power off)
+1	Single-user mode	Maintenance mode, no networking
+2	Multi-user mode, no network (varies by distro)	Multi-user mode without networking
+3	Full multi-user mode with networking	Text mode (console login)
+4	Undefined / user-definable	Custom use by admin
+5	Multi-user with graphical interface	Graphical desktop login (GUI)
+6	Reboot	System reboot
+
+Details:
+Runlevel 0: Shuts down and powers off the system.
+
+Runlevel 1: Also called single-user mode, used for system maintenance. Only root is logged in, no network services.
+
+Runlevel 3: Full multi-user mode with networking but no GUI — common for servers.
+
+Runlevel 5: Multi-user mode with GUI (X Window System / graphical login).
+
+Runlevel 6: Reboots the system.
