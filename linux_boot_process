@@ -1,0 +1,3 @@
+Summary Flow:
+Power on → BIOS/UEFI → Bootloader (GRUB) → Kernel load → Initramfs → Root filesystem → Init/Systemd → Services → User login
+
