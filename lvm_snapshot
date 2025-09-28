@@ -1,0 +1,14 @@
+# create
+sudo sync
+sudo fsfreeze -f /opt/liser
+sudo lvcreate -L 2G -s -n lv_opt_liser_snap /dev/vg00/lv_opt_liser
+sudo fsfreeze -u /opt/liser
+
+# mount & test
+sudo mkdir -p /mnt/lv_opt_liser_snap
+sudo mount /dev/vg00/lv_opt_liser_snap /mnt/lv_opt_liser_snap
+# ... run tests that may write files ...
+
+# when done, unmount & delete snapshot to revert origin
+sudo umount /mnt/lv_opt_liser_snap
+sudo lvremove -f /dev/vg00/lv_opt_liser_snap
