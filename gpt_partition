@@ -1,0 +1,9 @@
+sudo parted -s /dev/sdX mklabel gpt
+sudo parted -s /dev/sdX mkpart primary 1MiB 100%
+
+sudo pvcreate /dev/sdX1
+sudo vgcreate vg00 /dev/sdX1
+sudo lvcreate -L 10G -n lv_opt_liser vg00
+sudo mkfs.ext4 /dev/vg00/lv_opt_liser
+sudo mkdir -p /opt/liser
+sudo mount /dev/vg00/lv_opt_liser /opt/liser
