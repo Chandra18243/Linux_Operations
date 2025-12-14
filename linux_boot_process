@@ -33,6 +33,8 @@ Runlevel 0: Shuts down and powers off the system.
 
 Runlevel 1: Also called single-user mode, used for system maintenance. Only root is logged in, no network services.
 
+Runlevel 2: Multi-user mode, no network (varies by distro)	Multi-user mode without networking 
+
 Runlevel 3: Full multi-user mode with networking but no GUI — common for servers.
 
 Runlevel 5: Multi-user mode with GUI (X Window System / graphical login).
